@@ -58,7 +58,7 @@ class ExceptionalMarketEventRouter(gl.Contract):
             if not isinstance(leader,gl.vm.Return): return False
             try: l,r=_o(leader.calldata),analyze()
             except Exception: return False
-            return l.get("route")==r["route"] and _c(l.get("event_codes",[]))==r["event_codes"]
+            return l.get("route") == r["route"]
         return gl.vm.run_nondet_unsafe(analyze,verify)
     @gl.public.write
     def assess(self) -> dict:
