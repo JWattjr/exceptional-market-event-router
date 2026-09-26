@@ -27,4 +27,4 @@ This contract only classifies a frozen policy and returns a route recommendation
 
 ## Deployment evidence status
 
-The files `deployments/studionet.json` and `deployments/bradbury.json` are labeled `HISTORICAL_SOURCE_ONLY`. They predate this hardened implementation and do not establish the identity, finality, or behavior of this source. No deployment or live resolution proof for the current source was created during this review.
+`deployments/studionet-release-2026-09-26.json` records the current StudioNet source commit, source digest, deployment, owner-gated assessment writes, validator votes, and full state read-back. All three transactions finalized with successful leader execution. The one live assessment returned `UNRESOLVED` / `EVIDENCE_UNAVAILABLE` after the GenLayer web fetch returned `HTTP_ERROR`; no successful event classification is demonstrated. The older `deployments/studionet.json` and `deployments/bradbury.json` files are labeled `HISTORICAL_SOURCE_ONLY` and do not establish the identity or behavior of this source.

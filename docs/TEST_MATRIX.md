@@ -30,4 +30,4 @@ These tests do not establish behavior against live public webpages or agreement 
 | `python -m pytest tests -q` | Passed: 40 tests. |
 | `python -m genvm_linter.cli typecheck contracts/exceptional_market_event_router.py --json` | Attempted but unavailable: `pyright` is not installed. No typecheck pass is claimed. |
 
-No full integration test, live URL fetch, deployment, or Portal submission was performed for this source.
+No full integration test or Portal submission was performed. A separate one-time StudioNet deployment and live assessment is recorded in `deployments/studionet-release-2026-09-26.json`: all three transactions finalized with leader `SUCCESS`, while the assessment remained `UNRESOLVED` because the GenLayer web fetch returned `HTTP_ERROR`. This live attempt is not a substitute for the mocked test suite and does not demonstrate a successful source-backed classification.

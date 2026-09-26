@@ -64,7 +64,7 @@ A definite model finding must identify publication date `2026-08-11` and cite an
 - The SHA-256 value records the bytes fetched for an assessment; it does not prove those bytes are authentic or true.
 - If independent source claims conflict on a rule, validators are instructed to return `UNKNOWN`; semantic detection of such conflicts is model-mediated and not guaranteed by deterministic code.
 - Page instructions are presented to validators as untrusted evidence. Prompt wording and mocked tests do not guarantee semantic resistance to prompt injection.
-- Local direct tests do not establish live network behavior, source availability, or agreement among public GenLayer validators. No current deployment of this hardened source is claimed. Existing deployment records are historical only.
+- Local direct tests do not establish live network behavior, source availability, or agreement among public GenLayer validators. The current StudioNet deployment and one live assessment are recorded in [the release manifest](deployments/studionet-release-2026-09-26.json): deployment, `begin_assessment`, and `assess` finalized with successful leader execution, but the assessment remained `UNRESOLVED` because the GenLayer web fetch returned `HTTP_ERROR`. This does not demonstrate a successful CFTC classification. The older `deployments/studionet.json` and `deployments/bradbury.json` records remain historical only.
 
 ## Checks
 

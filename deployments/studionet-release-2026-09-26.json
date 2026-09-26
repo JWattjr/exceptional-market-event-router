@@ -1,0 +1,161 @@
+{
+  "evidence_status": "CURRENT_STUDIONET_RELEASE",
+  "network": "studionet",
+  "chain_id": 61999,
+  "recorded_at_utc": "2026-09-26",
+  "commit_sha": "7716a9e5772b70e9f7cbe7576425485f4c3c05ef",
+  "contract_file": "contracts/exceptional_market_event_router.py",
+  "source_sha256": "b94bb5a8976f410d6760bbda58bfb7ed7057843bfc74c30d0d361457dd3acf0d",
+  "git_blob_sha1": "7df05e59117b8eb9cdff88dc1c6e5658a57835bf",
+  "source_identity_checks": {
+    "working_source_bytes_match_git_blob": true,
+    "working_source_line_endings": "LF",
+    "release_commit_pushed_to_origin_main": true,
+    "origin_main_sha_at_source_release_verification": "7716a9e5772b70e9f7cbe7576425485f4c3c05ef"
+  },
+  "constructor_args": [
+    "venue:kalshiex:emergency-9281-26",
+    "{\"version\":\"router-v1\",\"allowed_routes\":[\"NORMAL\",\"PAUSE_LIQUIDATIONS\"],\"route_precedence\":[\"PAUSE_LIQUIDATIONS\",\"NORMAL\"],\"assessment_ttl_seconds\":3600,\"max_evidence_age_seconds\":5184000,\"rules\":[{\"id\":\"cftc_emergency\",\"route\":\"PAUSE_LIQUIDATIONS\",\"criteria\":\"The CFTC release explicitly reports exercising emergency authority after the named venue notified it of a market emergency.\",\"source_ids\":[\"cftc-release-9281-26\"]}]}",
+    "[{\"id\":\"cftc-release-9281-26\",\"url\":\"https://www.cftc.gov/PressRoom/PressReleases/9281-26\",\"host\":\"www.cftc.gov\"}]"
+  ],
+  "contract_address": "0x34870779543Aec41751B00FAaaE79FcB181dD679",
+  "explorer_contract_url": "https://explorer-studio.genlayer.com/address/0x34870779543Aec41751B00FAaaE79FcB181dD679",
+  "transactions": {
+    "deployment": {
+      "hash": "0x943af7acdd2cfe48312e0cfb6117451917847ee39418d71818c6725d28ac98b9",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x943af7acdd2cfe48312e0cfb6117451917847ee39418d71818c6725d28ac98b9",
+      "status": "FINALIZED",
+      "leader_execution": "SUCCESS",
+      "validator_votes": {
+        "0x4404Fb70d490c935758146f42A73DC850FF95C71": "AGREE",
+        "0x76c25AFC12c75485703cCFfd0083AA6201455B25": "AGREE",
+        "0xDB1c35c1f05d885999b8f13e5735307BcC16Be88": "AGREE",
+        "0xE6BD8050758CB15fC88387223E31Ae2708B119dC": "AGREE",
+        "0xacc2459F341D7a887bcA8FAA62F1EC9378d4Bc67": "AGREE"
+      },
+      "votes_committed": 5,
+      "votes_revealed": 5
+    },
+    "begin_assessment": {
+      "hash": "0x68be03a7e2ab7bcf302c54a738ce6958ded23d860845f26d43459fe40416f3c4",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x68be03a7e2ab7bcf302c54a738ce6958ded23d860845f26d43459fe40416f3c4",
+      "status": "FINALIZED",
+      "leader_execution": "SUCCESS",
+      "validator_votes": {
+        "0x36728d2a123aB444E603EE5b2ad17d18Bb193557": "AGREE",
+        "0x4EDbE1FC9EAeC7b0EBA849b0C76AE73Eb0ad5C47": "AGREE",
+        "0x4aba638Cf0Cf5249437AaD968fC69dde46ae6BAC": "AGREE",
+        "0x90402341F0B0e97b23023c0a87de957FB7148E0F": "AGREE",
+        "0x9ea87b28DcA2F79fe108CF06a4c13B4c876AC23d": "AGREE"
+      },
+      "votes_committed": 5,
+      "votes_revealed": 5
+    },
+    "assess": {
+      "hash": "0x7370c5d3182df963ec1fc6aba50e626f89d7806f651d622662c3e17501e266a0",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x7370c5d3182df963ec1fc6aba50e626f89d7806f651d622662c3e17501e266a0",
+      "status": "FINALIZED",
+      "leader_execution": "SUCCESS",
+      "validator_votes": {
+        "0x03D58A4DeF6fDFc032A56374785a5F571D07Bc11": "AGREE",
+        "0x36728d2a123aB444E603EE5b2ad17d18Bb193557": "IDLE",
+        "0x3D83ab507785b95ca5C208bEc80CCe3D5ca98100": "IDLE",
+        "0xacc2459F341D7a887bcA8FAA62F1EC9378d4Bc67": "AGREE",
+        "0xec2Fb79cd12255Eb34886CEd7332f27B98DEe658": "AGREE"
+      },
+      "votes_committed": 5,
+      "votes_revealed": 5
+    }
+  },
+  "assessment_summary": {
+    "route": "UNRESOLVED",
+    "reason_code": "EVIDENCE_UNAVAILABLE",
+    "source_fetch_status": "HTTP_ERROR",
+    "attempts": 1,
+    "retry_attempted": false,
+    "note": "The transaction finalized and the leader execution succeeded, but GenLayer web evidence retrieval failed. No CFTC event classification is claimed."
+  },
+  "get_state_readback": {
+    "assessment_time": "2026-09-26T20:36:54Z",
+    "attempts": 1,
+    "event_codes": [],
+    "expires_at": "2026-09-26T21:36:54Z",
+    "history": [
+      {
+        "assessment": {
+          "assessment_time": "2026-09-26T20:36:54Z",
+          "findings": [
+            {
+              "citations": [],
+              "rule_id": "cftc_emergency",
+              "status": "UNKNOWN"
+            }
+          ],
+          "market_id": "venue:kalshiex:emergency-9281-26",
+          "policy_hash": "720f900dc98953dc5190d131f03b9445ddf9c7625141ee4bc05e5089f2869d91",
+          "policy_version": "router-v1",
+          "reason_code": "EVIDENCE_UNAVAILABLE",
+          "source_records": [
+            {
+              "body_hash": "",
+              "fetch_status": "HTTP_ERROR",
+              "freshness": "UNKNOWN",
+              "host": "www.cftc.gov",
+              "published_date": "",
+              "source_id": "cftc-release-9281-26",
+              "url": "https://www.cftc.gov/PressRoom/PressReleases/9281-26"
+            }
+          ]
+        },
+        "event_codes": [],
+        "expires_at": "2026-09-26T21:36:54Z",
+        "route": "UNRESOLVED",
+        "status": "UNRESOLVED"
+      }
+    ],
+    "last_assessed_route": "UNRESOLVED",
+    "market_id": "venue:kalshiex:emergency-9281-26",
+    "policy_hash": "720f900dc98953dc5190d131f03b9445ddf9c7625141ee4bc05e5089f2869d91",
+    "policy_version": "router-v1",
+    "result": {
+      "assessment": {
+        "assessment_time": "2026-09-26T20:36:54Z",
+        "findings": [
+          {
+            "citations": [],
+            "rule_id": "cftc_emergency",
+            "status": "UNKNOWN"
+          }
+        ],
+        "market_id": "venue:kalshiex:emergency-9281-26",
+        "policy_hash": "720f900dc98953dc5190d131f03b9445ddf9c7625141ee4bc05e5089f2869d91",
+        "policy_version": "router-v1",
+        "reason_code": "EVIDENCE_UNAVAILABLE",
+        "source_records": [
+          {
+            "body_hash": "",
+            "fetch_status": "HTTP_ERROR",
+            "freshness": "UNKNOWN",
+            "host": "www.cftc.gov",
+            "published_date": "",
+            "source_id": "cftc-release-9281-26",
+            "url": "https://www.cftc.gov/PressRoom/PressReleases/9281-26"
+          }
+        ]
+      },
+      "event_codes": [],
+      "expires_at": "2026-09-26T21:36:54Z",
+      "route": "UNRESOLVED",
+      "status": "UNRESOLVED"
+    },
+    "route": "UNRESOLVED",
+    "status": "UNRESOLVED"
+  },
+  "public_link_checks": {
+    "explorer_contract": "HTTP 200",
+    "transaction_1_deployment": "HTTP 200 direct /tx/ route",
+    "transaction_2_begin_assessment": "HTTP 200 direct /tx/ route",
+    "transaction_3_assess": "HTTP 200 direct /tx/ route",
+    "github_contract_at_commit": "HTTP 200"
+  }
+}
