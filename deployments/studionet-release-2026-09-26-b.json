@@ -1,0 +1,205 @@
+{
+  "evidence_status": "CURRENT_SUCCESSFUL_STUDIONET_RELEASE",
+  "network": "studionet",
+  "chain_id": 61999,
+  "recorded_at_utc": "2026-09-26",
+  "commit_sha": "20c3f7963f49b264ad9dda1183709b228339dff7",
+  "contract_file": "contracts/exceptional_market_event_router.py",
+  "source_sha256": "b94bb5a8976f410d6760bbda58bfb7ed7057843bfc74c30d0d361457dd3acf0d",
+  "git_blob_sha1": "7df05e59117b8eb9cdff88dc1c6e5658a57835bf",
+  "source_identity_checks": {
+    "working_source_bytes_match_git_blob": true,
+    "working_source_line_endings": "LF",
+    "deployed_commit_was_pushed_origin_main": true,
+    "origin_main_sha_at_deployment": "20c3f7963f49b264ad9dda1183709b228339dff7",
+    "contract_source_changed_for_this_release": false
+  },
+  "evidence_qualification": {
+    "url": "https://www.federalregister.gov/api/v1/documents/2026-16201.json?fields%5B%5D=document_number&fields%5B%5D=title&fields%5B%5D=publication_date&fields%5B%5D=agencies&fields%5B%5D=html_url",
+    "publisher": "Federal Register API",
+    "http_status": 200,
+    "raw_size_bytes": 798,
+    "utf8": "VALID",
+    "publication_date": "2026-08-10",
+    "max_evidence_age_seconds": 5184000,
+    "qualification_note": "The official record identifies an SEC order approving temporary price-band protections in overnight trading to address extraordinary market volatility. The measured raw JSON body is below MAX_SOURCE_BYTES=12000."
+  },
+  "constructor_args": [
+    "us-equities:overnight-volatility-protections:2026-16201",
+    "{\"version\":\"router-v1\",\"allowed_routes\":[\"NORMAL\",\"CLOSE_ONLY\"],\"route_precedence\":[\"CLOSE_ONLY\",\"NORMAL\"],\"assessment_ttl_seconds\":3600,\"max_evidence_age_seconds\":5184000,\"rules\":[{\"id\":\"sec_overnight_price_bands\",\"route\":\"CLOSE_ONLY\",\"criteria\":\"The official Federal Register record identifies an SEC order granting approval of temporary price-band protections in overnight trading to address extraordinary market volatility.\",\"source_ids\":[\"federal-register-2026-16201\"]}]}",
+    "[{\"id\":\"federal-register-2026-16201\",\"url\":\"https://www.federalregister.gov/api/v1/documents/2026-16201.json?fields%5B%5D=document_number&fields%5B%5D=title&fields%5B%5D=publication_date&fields%5B%5D=agencies&fields%5B%5D=html_url\",\"host\":\"www.federalregister.gov\"}]"
+  ],
+  "failed_constructor_attempt": {
+    "hash": "0x9bedd0d0b9e68f7a68ca0bf84ab005b8349ce26e70203db133e629a875367ef3",
+    "explorer_url": "https://explorer-studio.genlayer.com/tx/0x9bedd0d0b9e68f7a68ca0bf84ab005b8349ce26e70203db133e629a875367ef3",
+    "status": "FINALIZED",
+    "leader_execution": "ERROR",
+    "error": "[EXPECTED] rule id is invalid",
+    "contract_created": false,
+    "note": "The first constructor used a rule ID longer than the frozen 32-character bound. Only the constructor argument was shortened before the successful deployment; contract source and evidence semantics were unchanged."
+  },
+  "contract_address": "0xDE6c9A4f2E7EfdF9dCc7b94640Ca07B1A42f766F",
+  "explorer_contract_url": "https://explorer-studio.genlayer.com/address/0xDE6c9A4f2E7EfdF9dCc7b94640Ca07B1A42f766F",
+  "transactions": {
+    "deployment": {
+      "hash": "0x6d3f0167e21756f23e86ffe409e7a6e20f1756a2d1d18378cc6acf3b058039ad",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x6d3f0167e21756f23e86ffe409e7a6e20f1756a2d1d18378cc6acf3b058039ad",
+      "status": "FINALIZED",
+      "leader_execution": "SUCCESS",
+      "validator_votes": {
+        "0x3E5ee2507cc167C9925Bf10c67D7986581112024": "AGREE",
+        "0x6737ca1d6BDF8b7C4f19143E2D55581Ca64eb7C3": "AGREE",
+        "0x76c25AFC12c75485703cCFfd0083AA6201455B25": "AGREE",
+        "0xDB1c35c1f05d885999b8f13e5735307BcC16Be88": "AGREE",
+        "0xcE1d6bBB36B744536153966B4DD42276f5ADd0F8": "AGREE"
+      },
+      "votes_committed": 5,
+      "votes_revealed": 5
+    },
+    "begin_assessment": {
+      "hash": "0xd970144b1ed1790c94d981c2c921290cd40e96f3290abff4fe106581c10063ee",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xd970144b1ed1790c94d981c2c921290cd40e96f3290abff4fe106581c10063ee",
+      "status": "FINALIZED",
+      "leader_execution": "SUCCESS",
+      "validator_votes": {
+        "0x4EDbE1FC9EAeC7b0EBA849b0C76AE73Eb0ad5C47": "IDLE",
+        "0x6737ca1d6BDF8b7C4f19143E2D55581Ca64eb7C3": "AGREE",
+        "0x772ffCd1dF6Cc566eC4b8d3f4F4f8eBbb6B36C84": "AGREE",
+        "0xDB1c35c1f05d885999b8f13e5735307BcC16Be88": "AGREE",
+        "0xcE1d6bBB36B744536153966B4DD42276f5ADd0F8": "IDLE"
+      },
+      "votes_committed": 5,
+      "votes_revealed": 5
+    },
+    "assess": {
+      "hash": "0xa06bad86d4ad54bcddfde4d0a7e684cf3651f980ea141944b3077d7379c13581",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xa06bad86d4ad54bcddfde4d0a7e684cf3651f980ea141944b3077d7379c13581",
+      "status": "FINALIZED",
+      "leader_execution": "SUCCESS",
+      "validator_votes": {
+        "0x3D83ab507785b95ca5C208bEc80CCe3D5ca98100": "AGREE",
+        "0x3E5ee2507cc167C9925Bf10c67D7986581112024": "AGREE",
+        "0x4404Fb70d490c935758146f42A73DC850FF95C71": "IDLE",
+        "0x4EDbE1FC9EAeC7b0EBA849b0C76AE73Eb0ad5C47": "AGREE",
+        "0xE6BD8050758CB15fC88387223E31Ae2708B119dC": "IDLE"
+      },
+      "votes_committed": 5,
+      "votes_revealed": 5
+    }
+  },
+  "assessment_summary": {
+    "status": "RESOLVED",
+    "route": "CLOSE_ONLY",
+    "reason_code": "OK",
+    "source_fetch_status": "FETCHED",
+    "source_freshness": "CURRENT",
+    "attempts": 1,
+    "event_codes": [
+      "sec_overnight_price_bands"
+    ],
+    "citation_count": 1
+  },
+  "get_state_readback": {
+    "assessment_time": "2026-09-26T20:57:58Z",
+    "attempts": 1,
+    "event_codes": [
+      "sec_overnight_price_bands"
+    ],
+    "expires_at": "2026-09-26T21:57:58Z",
+    "history": [
+      {
+        "assessment": {
+          "assessment_time": "2026-09-26T20:57:58Z",
+          "findings": [
+            {
+              "citations": [
+                {
+                  "locator": "title",
+                  "quote": "Order Granting Approval of the Twenty-Seventh Amendment to the National Market System Plan To Address Extraordinary Market Volatility To Establish Temporary Price Band Protections in Overnight Trading",
+                  "source_id": "federal-register-2026-16201"
+                }
+              ],
+              "rule_id": "sec_overnight_price_bands",
+              "status": "TRIGGERED"
+            }
+          ],
+          "market_id": "us-equities:overnight-volatility-protections:2026-16201",
+          "policy_hash": "5705a4dc1809f57295336fc3161c7a178347b14cba93203cfefb02a69694a035",
+          "policy_version": "router-v1",
+          "reason_code": "OK",
+          "source_records": [
+            {
+              "body_hash": "6bc472c56a4a455c977f5519b33d12d096bcc34e622a40a9eff159e3b0fb1709",
+              "fetch_status": "FETCHED",
+              "freshness": "CURRENT",
+              "host": "www.federalregister.gov",
+              "published_date": "2026-08-10",
+              "source_id": "federal-register-2026-16201",
+              "url": "https://www.federalregister.gov/api/v1/documents/2026-16201.json?fields%5B%5D=document_number&fields%5B%5D=title&fields%5B%5D=publication_date&fields%5B%5D=agencies&fields%5B%5D=html_url"
+            }
+          ]
+        },
+        "event_codes": [
+          "sec_overnight_price_bands"
+        ],
+        "expires_at": "2026-09-26T21:57:58Z",
+        "route": "CLOSE_ONLY",
+        "status": "RESOLVED"
+      }
+    ],
+    "last_assessed_route": "CLOSE_ONLY",
+    "market_id": "us-equities:overnight-volatility-protections:2026-16201",
+    "policy_hash": "5705a4dc1809f57295336fc3161c7a178347b14cba93203cfefb02a69694a035",
+    "policy_version": "router-v1",
+    "result": {
+      "assessment": {
+        "assessment_time": "2026-09-26T20:57:58Z",
+        "findings": [
+          {
+            "citations": [
+              {
+                "locator": "title",
+                "quote": "Order Granting Approval of the Twenty-Seventh Amendment to the National Market System Plan To Address Extraordinary Market Volatility To Establish Temporary Price Band Protections in Overnight Trading",
+                "source_id": "federal-register-2026-16201"
+              }
+            ],
+            "rule_id": "sec_overnight_price_bands",
+            "status": "TRIGGERED"
+          }
+        ],
+        "market_id": "us-equities:overnight-volatility-protections:2026-16201",
+        "policy_hash": "5705a4dc1809f57295336fc3161c7a178347b14cba93203cfefb02a69694a035",
+        "policy_version": "router-v1",
+        "reason_code": "OK",
+        "source_records": [
+          {
+            "body_hash": "6bc472c56a4a455c977f5519b33d12d096bcc34e622a40a9eff159e3b0fb1709",
+            "fetch_status": "FETCHED",
+            "freshness": "CURRENT",
+            "host": "www.federalregister.gov",
+            "published_date": "2026-08-10",
+            "source_id": "federal-register-2026-16201",
+            "url": "https://www.federalregister.gov/api/v1/documents/2026-16201.json?fields%5B%5D=document_number&fields%5B%5D=title&fields%5B%5D=publication_date&fields%5B%5D=agencies&fields%5B%5D=html_url"
+          }
+        ]
+      },
+      "event_codes": [
+        "sec_overnight_price_bands"
+      ],
+      "expires_at": "2026-09-26T21:57:58Z",
+      "route": "CLOSE_ONLY",
+      "status": "RESOLVED"
+    },
+    "route": "CLOSE_ONLY",
+    "status": "RESOLVED"
+  },
+  "public_link_checks": {
+    "explorer_contract": "HTTP 200",
+    "deployment_transaction": "HTTP 200",
+    "begin_assessment_transaction": "HTTP 200",
+    "assess_transaction": "HTTP 200",
+    "failed_constructor_transaction": "HTTP 200",
+    "github_contract_at_deployed_commit": "HTTP 200",
+    "official_evidence": "HTTP 200; 798 raw bytes; valid UTF-8; SHA-256 6bc472c56a4a455c977f5519b33d12d096bcc34e622a40a9eff159e3b0fb1709"
+  }
+}

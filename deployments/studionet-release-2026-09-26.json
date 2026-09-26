@@ -1,5 +1,7 @@
 {
-  "evidence_status": "CURRENT_STUDIONET_RELEASE",
+  "evidence_status": "FAIL_CLOSED_DEMONSTRATION",
+  "superseded_by": "deployments/studionet-release-2026-09-26-b.json",
+  "evidence_note": "Preserved as evidence that an inaccessible or oversized public source produces an explicit UNRESOLVED outcome rather than an apparently fresh route.",
   "network": "studionet",
   "chain_id": 61999,
   "recorded_at_utc": "2026-09-26",
