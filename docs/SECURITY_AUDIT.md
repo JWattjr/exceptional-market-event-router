@@ -1,30 +1,30 @@
-﻿# Security and consensus audit: Exceptional Market Event Router
+# Security review: Exceptional Market Event Router
 
-Audit date: 2026-08-12  
-Scope: contracts/exceptional_market_event_router.py
+Review date: 2026-09-26. Scope: `contracts/exceptional_market_event_router.py`, focused direct tests, and submission documentation. Review type: source-level engineering review; not formal verification, an independent audit, or a financial/legal guarantee.
 
-## Result
+## Controls in this source
 
-No unresolved critical or high-severity source-level finding remains after the
-hardening pass. This is an engineering audit, not formal verification and not
-a financial or legal guarantee.
+| Area | Implemented behavior | Limit |
+| --- | --- | --- |
+| Frozen policy | Exact bounded fields, unique rule/source IDs, source-reference checks, allowed route validation, and a complete explicit route precedence with `NORMAL` last. SHA-256 binds market ID, policy, and source records. | The owner chooses the policy. A digest commits to configuration bytes; it does not prove the policy is sound or evidence truthful. |
+| Assessment lifecycle | Starts `PENDING` / `UNRESOLVED`. Owner calls `begin_assessment`, which clears any previously active route and freezes the assessment time and expiry. `assess` must follow within that window. | If the assessment transaction fails to finalize, the finalized begin state remains `PENDING` / `UNRESOLVED`; callers must not act on a prior route. |
+| Independent consensus | The leader and validator independently fetch and assess every source. The validator validates the leader candidate, reruns the analysis, and votes for agreement only on exact canonical equality of market/policy/time bindings, all source records, rule findings, citations, hashes, and reason code. | Network consensus determines whether enough validators agree. Direct-mode validator simulation is not a live multi-validator or StudioNet test. |
+| Route derivation | Model output contains per-rule `TRIGGERED`, `NOT_TRIGGERED`, or `UNKNOWN` findings and citations; it cannot choose a route. Deterministic code derives `NORMAL` or the highest-priority triggered policy route. Codes are derived from frozen rule IDs. | The semantic finding is still model-mediated. Conflicting factual claims should be marked `UNKNOWN`; consensus cannot prove the model interpreted them correctly. |
+| URL and body handling | Bounded HTTPS URLs, canonical host matching, DNS-name syntax checks, HTTP 200, strict UTF-8, per-source and aggregate byte limits. Transport exceptions become explicit unavailable evidence. Bodies exceeding the limits are rejected as truncated, never clipped. | URL checks do not prove DNS ownership, publisher identity, redirect destination safety, or factual authority. Network/redirect behavior depends on the GenLayer web runtime. |
+| Freshness and citations | Every source must have a model-identified publication date no older than the frozen maximum age. Date-only values are treated as midnight UTC. Definite rules cite each required source with an exact bounded quotation present in that fetched body. | The date is extracted semantically and then checked deterministically; it is not signed metadata. A hash identifies fetched bytes but does not prove their truth. |
+| Failure behavior | Missing, stale, undated, oversized, malformed, partially assessed, or citation-invalid evidence derives `UNRESOLVED`. A validator votes against a mismatching candidate. | A reverted/unfinalized assessment makes no state change. The separately finalized `begin_assessment` keeps the current state unresolved during that attempt. |
+| History and access | Owner-only begin/assess; prior assessment records are retained up to 16. Further attempts are rejected at the cap instead of deleting old records. `get_state` exposes assessment time and expiry and returns an effective unresolved route after expiry. | The owner and downstream consumer remain responsible for operational monitoring and policy selection. |
 
-## Controls reviewed
+## Prompt-injection and source risks
 
-| Area | Control |
-| --- | --- |
-| Consensus | Validators independently repeat the substantive evaluation and compare the decision-critical tuple. |
-| Evidence | Evidence is bounded, HTTPS-only, and rejects localhost, internal domains, non-public IPv4 ranges, and userinfo URLs. |
-| Prompt safety | Prompts instruct validators to treat fetched pages as untrusted data and ignore embedded instructions. |
-| Failure mode | Source failure or ambiguity resolves to a conservative structured state rather than a payout or approval. |
-| State | Inputs are snapshotted before non-deterministic closures; writes occur only after consensus returns. |
-| Replay | Terminal or stateful methods preserve the most recent structured result and maintain attempt counters. |
+Evidence is explicitly framed as untrusted data and page instructions are not part of the contract policy. This does not guarantee semantic prompt-injection resistance. Mocked responses and direct tests cannot prove that a validator will ignore adversarial instructions in a live page. Production deployments should use carefully curated, narrow primary sources and independent operational review.
 
-## Residual risks
+An exact quote and content hash bind a citation to bytes returned for the frozen URL during an assessment. They do not authenticate the publisher, establish factual truth, prove the source was not compromised, or prove the URL did not redirect. Source selection and interpretation remain material risks.
 
-- Public webpages can change or become unavailable. Deployments should use
-  pre-approved stable primary sources and an explicit freshness policy.
-- Genuine semantic ambiguity can cause disagreement; that is preferable to a
-  unilateral decision and should route to the documented fail-closed state.
-- This primitive chooses a policy state; a downstream protocol must wait for
-  GenLayer transaction finality before moving funds or applying an irreversible action.
+## Routing boundary
+
+This contract only classifies a frozen policy and returns a route recommendation. It does not calculate prices, settle markets, pause liquidations, or invoke another protocol. Any consumer taking a consequential action must check the final GenLayer transaction status, wait for finality, verify the market ID and policy hash, and check that the assessment is still unexpired.
+
+## Deployment evidence status
+
+The files `deployments/studionet.json` and `deployments/bradbury.json` are labeled `HISTORICAL_SOURCE_ONLY`. They predate this hardened implementation and do not establish the identity, finality, or behavior of this source. No deployment or live resolution proof for the current source was created during this review.
